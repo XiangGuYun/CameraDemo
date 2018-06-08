@@ -5,7 +5,7 @@ CameraKit for Android
 ②：自动处理系统权限。
 ③：自动缩放预览界面。
     - 创建一个任意大小的CameraView
-    - 自动地修剪图像输出以适配你的CameraView边框宽高
+    - 自动地修剪图像输出以适配你的CameraView边框宽高（可以保证不变形）
 ④：多样的捕捉方法
     - METHOD_STANDARD（标准）：正常地使用cameraAPI来捕捉图像
     - METHOD_STILL（静态）：捕捉CameraView预览画面的冻结帧，针对更慢的相机设备，类似于阅后即焚和图片分享。
@@ -99,11 +99,11 @@ ameraView.setPermissions(CameraKit.Constants.PERMISSIONS_STRICT);
 ——————————————————————————————————————————————————————————————————
 动态的尺寸调节
 cameraView.setCropOutput(true);
-    你可以将CameraView设置成任意尺寸。当你的尺寸与实际预览界面的宽高比不相匹配时，
+    你可以将CameraView设置成任意尺寸。当CameraView的尺寸与实际预览界面的宽高比不相匹配时，
 预览界面会最低限度地修剪来填充CameraView，类似于ImageView的android:scaleType="centerCrop"，
 保证了图像的比例正确。
     你可以给cameraView的宽高设置一个固定的尺寸(或match_parent)，
-另外还需要使用android:adjustViewBounds="true"属性,这样就可以自动匹配surface图像的分辨率，
+另外还需要使用android:adjustViewBounds="true"属性,这样就可以自动匹配实际预览界面的宽高比，
 以获得完整而不变形的图像。
 ——————————————————————————————————————————————————————————————————
 

@@ -106,7 +106,34 @@ cameraView.setCropOutput(true);
 另外还需要使用android:adjustViewBounds="true"属性,这样就可以自动匹配实际预览界面的宽高比，
 以获得完整而不变形的图像。
 ——————————————————————————————————————————————————————————————————
+相机事件监听
+camera.setCameraListener(new CameraListener() {
 
+    @Override
+    public void onCameraOpened() {
+        super.onCameraOpened();
+        //打开相机
+    }
+
+    @Override
+    public void onCameraClosed() {
+        super.onCameraClosed();
+        //关闭相机
+    }
+
+    @Override
+    public void onPictureTaken(byte[] picture) {
+        super.onPictureTaken(picture);
+        //获取到拍摄相片
+    }
+
+    @Override
+    public void onVideoTaken(File video) {
+        super.onVideoTaken(video);
+        //获取到拍摄视频
+    }
+
+});
 
 
 
